@@ -15,16 +15,9 @@
               <a href="#">{{ article.title }}</a>
             </h4>
             <p class="card-text">{{ article.text }}</p>
-            <p>{{ article.relation.all }}</p>
-            {% for scope in article.tag.all %}
-              <p>{{ scope.relation.values}}</p>
-              <span class="badge
-              {% if item %}
-              badge-primary
-              {% else %}
-              badge-secondary
-              {% endif %}">
-                {{ scope.name }}
+            {% for scope in article.relation.all %}
+              <span class="badge {% if scope.is_main %}badge-primary{% else %}badge-secondary{% endif %}">
+                {{ scope.tag.name }}
               </span>
             {% endfor %}
           </div>

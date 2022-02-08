@@ -31,3 +31,6 @@ class TagPosition(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='relation')
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='relation')
     is_main = models.BooleanField(default='False')
+
+    class Meta:
+        ordering = ['-is_main']
